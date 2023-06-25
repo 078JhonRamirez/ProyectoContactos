@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->String('email',100);
             $table->String('contrasenia',150);
+            $table->rememberToken();
             $table->timestamps();
         });
     }
