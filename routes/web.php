@@ -89,7 +89,7 @@ Route::get('/contactos/{id}', [ContactoController::class, 'show'], function(){
     return view('contactos');
 })->name('contactos.show');
 
-Route::get('nuevoContacto', [ContactoController::class, 'crea'])->name('contactos.crea');
+Route::get('contactoNuevo', [ContactoController::class, 'crea'])->name('contactos.crea');
 
 Route::get('/contactos', [ContactoController::class, 'index'])->name('contactos.index');
 

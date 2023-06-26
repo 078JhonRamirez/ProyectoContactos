@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Contacto;
+use App\Models\grupo;
 
 class ContactoController extends Controller
 {
@@ -33,7 +34,9 @@ public function show($id)
 
 public function crea()
 {
-    return view('nuevoContacto');
+    $data = grupo::all();
+    
+    return view('nuevoContacto', ['grupos' => $data]);
 }
 
 public function index(Request $request)

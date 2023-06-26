@@ -25,137 +25,28 @@
                 <label for="Nombre" class="form-label">Nombre</label>
                 <table>
                   <tr>
-                    @foreach ($perfil as $perfiles)
+                    {{-- @foreach ($perfil as $perfiles) --}}
                     <td scope="col" class="text-cemter align-middle">
-                      {{ $perfiles->nombre }}</td>
+                      {{ $perfil->nombre }}</td>
                   </tr>
                   <tr>
-                  <td scope="col" class="text-cemter align-middle">{{ $perfiles->apellido }}</td>
+                  <td scope="col" class="text-cemter align-middle">{{ $perfil->apellido }}</td>
                   </tr>
                   <tr>
-                  <td scope="col" class="text-cemter align-middle">{{ $perfiles->perfil }}</td>
+                  <td scope="col" class="text-cemter align-middle">{{ $perfil->perfil }}</td>
                   </tr>
                   <tr>
-                  <td scope="col" class="text-cemter align-middle">{{ $perfiles->email }}</td>
+                  <td scope="col" class="text-cemter align-middle">{{ $perfil->email }}</td>
                   </tr>
                   <tr>
-                  <td scope="col" class="text-cemter align-middle">{{ $perfiles->direccion }}</td>
+                  <td scope="col" class="text-cemter align-middle">{{ $perfil->direccion }}</td>
                   </tr>
                   <tr>
-                  <td scope="col" class="text-cemter align-middle">{{ $perfiles->telefono }}</td>
+                  <td scope="col" class="text-cemter align-middle">{{ $perfil->telefono }}</td>
                   </tr>
-                  @endforeach
+                  {{-- @endforeach --}}
                 </table>
-                <!-- <div class="invalid-feedback">
-                  El nombre es obligatorio.
-                </div>
-              </div>
-
-              <div class="col-sm-6">
-                <label for="Apellido" class="form-label">Apellido</label>
-                <table>
-                  <tr>
-                    @foreach ($perfil as $perfiles)
-                    <td scope="col" class="text-cemter align-middle">{{ $perfiles->apellido }}</td>
-                  </tr>
-                  @endforeach
-                </table>
-                <div class="invalid-feedback">
-                  El apellido es obligatorio.
-                </div>
-              </div>
-            </div>
-
-            <div class="mb-3">
-              <label for="Usuario" class="form-label">Usuario</label>
-              <div class="input-group has-validation">
-                <span class="input-group-text">@</span>
-                <table>
-                  <tr>
-                    @foreach ($perfil as $perfiles)
-                    <td scope="col" class="text-cemter align-middle">{{ $perfiles->perfil }}</td>
-                  </tr>
-                  @endforeach
-                </table>
-                <div class="invalid-feedback">
-                  El usuario es obligatorio.
-                </div>
-              </div>
-            </div>
-
-            <div class="mb-3">
-              <label for="Correo" class="form-label">Correo Electrónico <span class="text-body-secondary">(Opcional)</span></label>
-              <div class="input-group has-validation">
-                <span class="input-group-text"><ion-icon name="file-tray-outline"></ion-icon></span>
-                <table>
-                  <tr>
-                    @foreach ($perfil as $perfiles)
-                    <td scope="col" class="text-cemter align-middle">{{ $perfiles->email }}</td>
-                  </tr>
-                  @endforeach
-                </table>
-                <div class="invalid-feedback">
-                  Por favor, introduce una dirección de correo electrónico válida.
-                </div>
-              </div>
-            </div>
-
-            <div class="mb-3">
-              <label for="Direccion" class="form-label">Dirección <span class="text-body-secondary">(Opcional)</span></label>
-              <div class="input-group has-validation">
-                <span class="input-group-text"><ion-icon name="home-outline"></ion-icon></span>
-                <table>
-                  <tr>
-                    @foreach ($perfil as $perfiles)
-                    <td scope="col" class="text-cemter align-middle">{{ $perfiles->direccion }}</td>
-                  </tr>
-                  @endforeach
-                </table>
-                <div class="invalid-feedback">
-                  Por favor, introduce tu dirección de envío.
-                </div>
-              </div>
-            </div>
-
-            <div class="mb-3">
-              <label for="Telefono" class="form-label">Teléfono <span class="text-body-secondary">(Opcional)</span></label>
-              <div class="input-group has-validation">
-                <span class="input-group-text"><ion-icon name="call-outline"></ion-icon></span>
-                <table>
-                  <tr>
-                    @foreach ($perfil as $perfiles)
-                    <td scope="col" class="text-cemter align-middle">{{ $perfiles->telefono }}</td>
-                  </tr>
-                  @endforeach
-                </table>
-                <div class="invalid-feedback">
-                  Por favor, introduce un número válido.-->
-                 </div>
-              </div>
-          </div>
-
-           
-
-        
-        <div class="col-md-5 col-lg-3">
-          <h2 class="text-primary">Cuenta</h2>
-          <p>Usuario:</p>
-          <table>
-          <tr>
-            @foreach ($perfil as $perfiles)
-            <td scope="col" class="text-cemter align-middle">{{ $perfiles->perfil }}</td>
-          </tr>
-          @endforeach
-        </table>
-        <br>
-         <p>Descripcion:</p>
-         <table>
-          <tr>
-            @foreach ($perfil as $perfiles)
-            <td scope="col" class="text-cemter align-middle">{{ $perfiles->descripcion }}</td>
-          </tr>
-          @endforeach
-        </table>
+              
         <br>
           <img src="img/logo_usuario.png" height="150px" alt=""> <!-- Imagen del usuario -->
         </div>

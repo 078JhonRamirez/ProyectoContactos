@@ -10,11 +10,14 @@ class perfil_controller extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function perfil()
+    public function perfil($id)
     {
+
+        $perfil = Contacto::find($id);
+
+        // dd( $perfil->toarray());
         
-        $perfil = Contacto::select('perfil','nombre','apellido','email','telefono','direccion','descripcion')->get();
-        return view ('perfil',compact('perfil'));
+        return view ('perfil', compact('perfil'));
     }
     public function cambiarNombre(Request $request)
     {
