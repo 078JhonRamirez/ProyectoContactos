@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\perfil_controller;
+use App\Http\Controllers\detalle_controller;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -44,6 +45,17 @@ Route::get('/grupos', function () {
 Route::get('/nuevogrupo', function () {
     return view('nuevogrupo');
 });
+
+Route::get('/perfil',[perfil_controller::class,'perfil'])->name('perfil');
+
+Route::post('perfil', [perfil_controller::class, 'cambiarNombre']);
+
+Route::post('perfil', [perfil_controller::class, 'cambiarContrasena']);
+
+Route::get('/detalle_contactos',[detalle_controller::class,'detalle']);
+
+
+
 
 
 
