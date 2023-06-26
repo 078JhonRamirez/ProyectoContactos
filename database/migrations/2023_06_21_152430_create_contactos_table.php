@@ -25,10 +25,8 @@ return new class extends Migration
             $table->String('region',30);
             $table->String('descripcion',150);
 
-            $table->unsignedBigInteger('usuario_id');
             $table->unsignedBigInteger('grupo_id');
 
-            $table->foreign('usuario_id')->references('id')->on('usuarios');
             $table->foreign('grupo_id')->references('id')->on('grupos');
 
             $table->timestamps();

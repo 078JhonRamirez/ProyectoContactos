@@ -13,10 +13,14 @@
     <div class="box">
         <h1>App citas</h1>
         <form >
-            <label for="nombredelusuario">Nombre de usuario</label>
-            <input type="text" placeholder="Nombre">
+            <label for="correoElectrinico">Correo Electronico</span></label>
+            <input type="text" placeholder="Nombre" id="email">
+            <p><span id="emailOK"></p>
+
             <label for="password">Contraseña</label>
-            <input type="password" placeholder="contraseña">
+            <input type="password" placeholder="contraseña" id="contraseña">
+            <p><span id="contra"></p>
+
             <input type="submit" value="Iniciar sesion">
             <input type="reset" value="limpiar">
 
@@ -25,5 +29,6 @@
             <a href="formulario/formulario.html">crea una cuenta</a> -->
         </form>
     </div>
+    <script src="js/index.js"></script>
 </body>
 </html>

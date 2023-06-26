@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\UsuarioController;
+
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,16 +17,34 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
 
 Route::get('/', function () {
     return view('index');
+});  
+
+Route::get('/pruebas', function () {
+    return view('pruebas');
 });
 
+Route::get('/index', function () {
+    return view('index');
+})->name('login'); 
+
+Route::post('/check', [LoginController::class, 'check']);
+Route::post('/nuevoContacto', [UsuarioController::class, 'store'])->name('nuevoContacto');
+Route::get('/nuevoContacto', [UsuarioController::class, 'create'])->name('nuevoContacto');
+Route::get('/nuevoContacto', [UsuarioController::class, 'index'], function(){
+    return view('nuevoContacto');
+    
+})->name('nuevoContacto');
+    
+
+
+
+
+
 Route::get('/contactos', function () {
-    return view('contactos');
+    return view('contactos') ->name('contactos');
 });
 
 Route::get('/detalle_contactos', function () {

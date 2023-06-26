@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Contacto extends Model
 {
     use HasFactory;
+    // protected $table ="contactos";
 
     protected $fillable =[
         'perfil',
@@ -21,6 +22,7 @@ class Contacto extends Model
         'trabajo',
         'region',
         'descripcion',
+        'grupo_id'
     ];
 
     // relacion entre usuario y contacto

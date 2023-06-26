@@ -19,7 +19,7 @@
 
 <!-- animaciones -->
     <rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"> 
+href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"> 
 </head>
  <body>
 
@@ -33,8 +33,9 @@
         <div class="contact-wrapper">
             <div class="contact-form">
                 <h3>Crear Contacto</h3>
-                <form action="#">
 
+                <form action="{{ url('nuevoContacto') }}" method="post">
+                    @csrf
                     <p class="select-file">
                         <label>Perfi</label>
                         <input type="file" id="seleccionArchivo" name="perfil"  >
@@ -47,7 +48,7 @@
 
                     <p>
                         <label>apellido</label>
-                        <input type="text" name="apelldio">
+                        <input type="text" name="apellido">
                     </p>
 
                     <p>
@@ -87,16 +88,17 @@
 
                     <p>
                         <label>Grupo</label>
-                        <select name="grupo" >
-                            <option value="">...</option>
-                            <option value="">...</option>
-                            <option value="">...</option>
+                        <select name="grupo">
+                            <option >selecciona un grupo</option>
+                            <option value="1">Familia</option>
+                            <option value="2">Colegio</option>
+                            <option value='3'>Fiesta</option>
                         </select>
                     </p>
 
                     <p class="block">
                         <label>descripcion</label>
-                        <textarea name="decripcion" rows="3"></textarea>
+                        <textarea name="descripcion" rows="3"></textarea>
                     </p>
 
                     <p class="block">
