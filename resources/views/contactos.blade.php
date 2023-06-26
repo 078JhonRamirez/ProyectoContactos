@@ -6,61 +6,63 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Contactos</title>
 </head>
-<body>
-    
+<body>    
     
     @yield('menu')
 
-    
     <div class="p-5">
     <div class="container rounded" style="background: rgba(128, 128, 128, 0.5)">
       <div class="row">
         <h2 class="p-5"><center>Lista de contactos</center></h2>
       </div>
-      <div class="row">
-        <div class="row justify-content-center align-items-center">
-          <div class="col-1">
-            <form class="d-flex">
-              <button class="btn btn-primary" type="submit" style="background: #00d85e">Agregar</button>
-            </form>
-          </div>
-          <div class="col-4">
-          <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
-            <button><i class="bi bi-search"></i></button>
-          </form>
-        </div>
-      </div>
-    </div>
     
-
     <div class="container">
         <table class="table">
+         <div class="d-flex justify-content-center">
+    <div class="col-md-6">
+        <form action="{{ route('contactos.index') }}" method="GET" class="mb-3">
+            <div class="input-group">
+                <a href="{{ route('contactos.create') }}" class="btn btn-primary" style="background: rgb(41, 209, 41)">Agregar</a>
+                <input type="text" class="form-control" name="buscar" placeholder="Buscar por nombre">
+                <button type="submit" class="btn btn-primary"><i class="bi bi-search"></i></button>
+            </div>
+        </form>
+    </div>
+</div>
+        <br>
             <thead>
               <tr>
                 <th scope="col" class="text-center align-middle">Id</th>
+                <th scope="col" class="text-center align-middle">IMG</th>
                 <th scope="col" class="text-center align-middle">Nombre</th>
                 <th scope="col" class="text-center align-middle">Celular</th>
-                <th scope="col" class="text-center align-middle">Email</th>
                 <th scope="col" class="text-center align-middle">
                  Acciones
                 </th>
               </tr>
             </thead>
             <tbody>
+              @foreach ($contactos as $contacto)
               <tr>
-                <td scope="col" class="text-center align-middle"><!-- llamar id--></td>
-                <td scope="col" class="text-center align-middle"><!--Llmar nombre--></td>
-                <td scope="col" class="text-center align-middle"><!--llamar cel--></td>
-                <td scope="col" class="text-center align-middle"><!--Llamar email--></td>
+                <td scope="col" class="text-center align-middle">{{$contacto->id}}</td>
+                <td scope="col" class="text-center align-middle">{{$contacto->perfil}}</td>
+                <td scope="col" class="text-center align-middle">{{$contacto->nombre}}</td>
+                <td scope="col" class="text-center align-middle">{{$contacto->telefono}}</td>
                 <td scope="col" class="text-center align-middle">
-                  <button class="btn btn-primary"><i class="bi bi-eye"></i></button>
-                  <button class="btn btn-danger"><i class="bi bi-trash"></i></button>
-                </td>
+
+                  <a href="{{ route('contactos.show', $contacto->id) }}"><button class="btn btn-primary"><i class="bi bi-eye"></i></button></a>
+
+                  <form action="{{ route('contactos.destroy', $contacto->id) }}" method="POST" style="display: inline;">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger"><i class="bi bi-trash"></i></button>
+                </form>
+              </td>
               </tr>
+              @endforeach
             </tbody>
           </table>
-      </div>
+        </div>
       <br>
     </div>
   </div>
