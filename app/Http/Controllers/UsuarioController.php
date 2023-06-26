@@ -17,11 +17,11 @@ class UsuarioController extends Controller
      * Display a listing of the resource.
      */
 
-    public function index()
+    public function index(grupo $grupo)
     {
         $data = grupo::all()->get;
-        // dd($data);
-        return view('nuevoContacto', compact('data'));
+        dd($data);
+        // return view('nuevoContacto', compact('data'));
 
         
     }
@@ -30,7 +30,9 @@ class UsuarioController extends Controller
      */
     public function create()
     {
-        return view('nuevoContacto');
+        $data = grupo::all();
+
+        return view('nuevoContacto', ['grupos' => $data]);
     
     }
 
@@ -86,7 +88,7 @@ class UsuarioController extends Controller
         
         Contacto::create($dataContacto);
         
-        return redirect('nuevoContacto');
+        return redirect('contactos');
 
         // Contacto::create( $dataContacto);
         // return redirect('nuevoContacto');

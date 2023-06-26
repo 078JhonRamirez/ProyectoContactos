@@ -21,10 +21,10 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{{ route('perfil') }}" style="color: #5DE0E6">Perfil</a>
+                <a class="nav-link active" aria-current="page" href="{{ url('perfil') }}" style="color: #5DE0E6">Perfil</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{{ route('grupos') }}" style=" color: #5DE0E6">Grupos</a>
+                <a class="nav-link active" aria-current="page" href="{{ url('grupos') }}" style=" color: #5DE0E6">Grupos</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="{{ url('contactos') }}" style=" color: #5DE0E6">contactos</a>

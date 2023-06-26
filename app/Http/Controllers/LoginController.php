@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use Auth;
+use Hash;
 
 class LoginController extends Controller
 {
@@ -12,14 +13,16 @@ class LoginController extends Controller
             public function check(Request $request){
  
                     $data['email'] = $request->get('email');
-                    $data['password'] = $request->get('password');
+                    $data['password'] = Hash::make($request->get('password'));
+            
+                    // dd($data);
             
                     if (Auth::attempt( $data )) {
 
                         $request->session()->regenerate();
 
-                        return redirect()->intended();
-                        return view('contactos');
+                        return redirect('contactos');
+                        // return view('contactos');
 
 
                     }             

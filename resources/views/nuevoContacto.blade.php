@@ -90,9 +90,9 @@ href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
                         <label>Grupo</label>
                         <select name="grupo">
                             <option >selecciona un grupo</option>
-                            <option value="1">Familia</option>
-                            <option value="2">Colegio</option>
-                            <option value='3'>Fiesta</option>
+                            @foreach ($grupos as $grupo)
+                                <option value="{{ $grupo->id }}">{{ $grupo->grupo }}</option>
+                            @endforeach
                         </select>
                     </p>
 

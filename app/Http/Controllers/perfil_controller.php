@@ -12,6 +12,7 @@ class perfil_controller extends Controller
      */
     public function perfil()
     {
+        
         $perfil = Contacto::select('perfil','nombre','apellido','email','telefono','direccion','descripcion')->get();
         return view ('perfil',compact('perfil'));
     }

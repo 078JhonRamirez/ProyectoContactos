@@ -31,7 +31,7 @@ public function show($id)
     return view('perfil', compact('contacto'));
 }
 
-public function create()
+public function crea()
 {
     return view('nuevoContacto');
 }

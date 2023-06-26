@@ -22,7 +22,7 @@
     <div class="col-md-6">
         <form action="{{ route('contactos.index') }}" method="GET" class="mb-3">
             <div class="input-group">
-                <a href="{{ route('contactos.create') }}" class="btn btn-primary" style="background: rgb(41, 209, 41)">Agregar</a>
+                <a href="{{ route('contactos.crea') }}" class="btn btn-primary" style="background: rgb(41, 209, 41)">Agregar</a>
                 <input type="text" class="form-control" name="buscar" placeholder="Buscar por nombre">
                 <button type="submit" class="btn btn-primary"><i class="bi bi-search"></i></button>
             </div>
@@ -50,7 +50,7 @@
                 <td scope="col" class="text-center align-middle">{{$contacto->telefono}}</td>
                 <td scope="col" class="text-center align-middle">
 
-                  <a href="{{ route('contactos.show', $contacto->id) }}"><button class="btn btn-primary"><i class="bi bi-eye"></i></button></a>
+                  <a href="{{ route('perfil', $contacto->id) }}"><button class="btn btn-primary"><i class="bi bi-eye"></i></button></a>
 
                   <form action="{{ route('contactos.destroy', $contacto->id) }}" method="POST" style="display: inline;">
                     @csrf

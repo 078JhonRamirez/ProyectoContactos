@@ -26,11 +26,27 @@
                 <table>
                   <tr>
                     @foreach ($perfil as $perfiles)
-                    <td scope="col" class="text-cemter align-middle">{{ $perfiles->nombre }}</td>
+                    <td scope="col" class="text-cemter align-middle">
+                      {{ $perfiles->nombre }}</td>
+                  </tr>
+                  <tr>
+                  <td scope="col" class="text-cemter align-middle">{{ $perfiles->apellido }}</td>
+                  </tr>
+                  <tr>
+                  <td scope="col" class="text-cemter align-middle">{{ $perfiles->perfil }}</td>
+                  </tr>
+                  <tr>
+                  <td scope="col" class="text-cemter align-middle">{{ $perfiles->email }}</td>
+                  </tr>
+                  <tr>
+                  <td scope="col" class="text-cemter align-middle">{{ $perfiles->direccion }}</td>
+                  </tr>
+                  <tr>
+                  <td scope="col" class="text-cemter align-middle">{{ $perfiles->telefono }}</td>
                   </tr>
                   @endforeach
                 </table>
-                <div class="invalid-feedback">
+                <!-- <div class="invalid-feedback">
                   El nombre es obligatorio.
                 </div>
               </div>
@@ -113,59 +129,12 @@
                   @endforeach
                 </table>
                 <div class="invalid-feedback">
-                  Por favor, introduce un número válido.
-                </div>
+                  Por favor, introduce un número válido.-->
+                 </div>
               </div>
-            </div>
+          </div>
 
-            <br>
-            <br>
-            <hr>
-            <br>
-            <h2 class="text-primary">Cambiar datos</h2>
-            <br>
-            <br>
-            <p><span class="text-body-secondary">Cambiar nombre de usuario</span></p>
-          
-<div class="mb-3 col-sm-6">
-    <form action="{{ route('perfil') }}" method="POST">
-        @csrf
-        <label for="cambiar_nombre" class="form-label">Nombre</label>
-        <input type="text" class="form-control" id="cambiar_nombre" name="nuevo_nombre" placeholder="" value="" required>
-        <div class="invalid-feedback">
-            El nombre es obligatorio.
-        </div>
-        <br>
-        <button class="btn btn-primary" type="submit">Guardar cambios</button>
-    </form>
-</div>
-            <br>
-            <div class="col-6">
-              <hr>
-            </div>
-            <br>
-            <p><span class="text-body-secondary">Cambiar contraseña</span></p>
-            <form class="needs-validation" novalidate="" action="{{ route('perfil') }}" method="POST">
-              @csrf
-              <div class="mb-3 col-sm-6">
-                  <label for="nueva_contrasena" class="form-label">Contraseña nueva</label>
-                  <input type="password" class="form-control" id="nueva_contrasena" name="nueva_contrasena" placeholder="" required="">
-                  <div class="invalid-feedback">
-                      La contraseña es obligatoria.
-                  </div>
-              </div>
-          
-              <div class="mb-3 col-sm-6">
-                  <label for="confirmar_contrasena" class="form-label">Confirmar contraseña</label>
-                  <input type="password" class="form-control" id="confirmar_contrasena" name="confirmar_contrasena" placeholder="" required="">
-                  <div class="invalid-feedback">
-                      La confirmación de contraseña es obligatoria.
-                  </div>
-              </div>
-          
-              <button class="btn btn-primary" type="submit">Guardar cambios</button>
-          </form>
-        </div>
+           
 
         
         <div class="col-md-5 col-lg-3">

@@ -40,29 +40,24 @@ input, textarea {
 <br>
 <br>
 <main>
-<div class = "con">
-    <form action=" ">
-        @csrf
-        <br>
-        <h6>Nombre del grupo: </h6>
-        <input type="text" name="" id="">
-        <br>
-        <h6> Descripcion</h6>
-        <textarea name="" id="" cols="30" rows="5"></textarea>
-        <br>
-        <table class="table table-sm">
-            <tr>
-                <th colspan="2"><h6>Añadir Contactos</h6></th>
-            </tr>
-            <tr>
-                <td>contacto</td>
-            </tr>
-        </table>   
-
-    </form>
-    <div class="btton">   
-    <a href=""class="btn btn-danger my-2">cancelar</a>     
-    <a href=""class="btn btn-primary my-2">Aceptar</a>  
-    </div> 
-</div>
-</main>
+    <div class = "con">
+        <form action="{{ route('datos.guardar') }}" method="POST">
+            @csrf
+            <label for="grupo"><h4>nombre</h4></label>
+            <br>
+            <input type="text" id="grupo" name="grupo" required>
+            <br>
+    
+            <label for="descripcion"><h4>descripcion</h4></label>
+            <br>
+            <textarea type="text" id="descripcion" name="descripcion" cols="30" rows="10" required></textarea>
+            <br>
+            <br>
+    
+            <button type="submit" class="btn btn-primary">Guardar</button>
+        </form>
+        <div class="btton">   
+        <a href="{{url('grupos')}}"class="btn btn-danger my-2">cancelar</a>     
+        </div> 
+    </div>
+    </main>
