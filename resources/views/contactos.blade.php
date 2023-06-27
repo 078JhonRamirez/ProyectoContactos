@@ -50,7 +50,7 @@
                 <td scope="col" class="text-center align-middle">{{$contacto->telefono}}</td>
                 <td scope="col" class="text-center align-middle">
 
-                  <a href="{{ route('perfil', $contacto->id) }}"><button class="btn btn-primary"><i class="bi bi-eye"></i></button></a>
+                  <a href="{{ route('detalle', $contacto->id) }}"><button class="btn btn-primary"><i class="bi bi-eye"></i></button></a>
 
                   <form action="{{ route('contactos.destroy', $contacto->id) }}" method="POST" style="display: inline;">
                     @csrf

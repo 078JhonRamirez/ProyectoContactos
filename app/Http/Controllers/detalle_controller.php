@@ -9,10 +9,14 @@ class detalle_controller extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function detalle()
+    public function detalle($id)
     {
-        $detalle = Contacto::select('perfil','nombre','apellido','email','telefono','sexo','fijo')->get();
-        return view ('detalle_contactos',compact('detalle'));
+
+        $detalle = Contacto::find($id);
+
+        // dd( $perfil->toarray());
+        
+        return view ('detalle_contactos', compact('detalle'));
     }
     public function index()
     {

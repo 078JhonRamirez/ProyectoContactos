@@ -1,3 +1,4 @@
+@include('layout/plantilla')
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,46 +12,81 @@
 </head>
 
 <body>
-  @include('layout/plantilla')
-
   @yield('menu')
+
   <div class="container">
     <div class="p-5">
       <div class="row">
         <div class="col-md-7 col-lg-9">
           <h2 class="mb-3 text-primary">Perfil de Usuario</h2>
-          <form class="needs-validation" novalidate="">
+          <form class="needs-validation" novalidate>
             <div class="row">
               <div class="col-sm-6">
-                <label for="Nombre" class="form-label">Nombre</label>
-                <table>
+                <table class="table">
                   <tr>
-                    {{-- @foreach ($perfil as $perfiles) --}}
-                    <td scope="col" class="text-cemter align-middle">
-                      {{ $perfil->nombre }}</td>
+                    <td>
+                      <p class="form-label">Nombre:</p>
+                    </td>
+                    <td class="text-center align-middle">
+                      <span>{{ $perfil->nombre }}</span>
+                    </td>
                   </tr>
                   <tr>
-                  <td scope="col" class="text-cemter align-middle">{{ $perfil->apellido }}</td>
+                    <td>
+                      <p class="form-label">Apellido:</p>
+                    </td>
+                    <td class="text-center align-middle">
+                      <span>{{ $perfil->apellido }}</span>
+                    </td>
                   </tr>
                   <tr>
-                  <td scope="col" class="text-cemter align-middle">{{ $perfil->perfil }}</td>
+                    <td>
+                      <p class="form-label">Email:</p>
+                    </td>
+                    <td class="text-center align-middle">
+                      <span class="input-group-text"><ion-icon name="file-tray-outline"></ion-icon>{{ $perfil->email }}</span>
+                    </td>
                   </tr>
                   <tr>
-                  <td scope="col" class="text-cemter align-middle">{{ $perfil->email }}</td>
+                    <td>
+                      <p class="form-label">Dirección:</p>
+                    </td>
+                    <td class="text-center align-middle">
+                      <span class="input-group-text"><ion-icon name="home-outline"></ion-icon>{{ $perfil->direccion }}</span>
+                    </td>
                   </tr>
                   <tr>
-                  <td scope="col" class="text-cemter align-middle">{{ $perfil->direccion }}</td>
+                    <td>
+                      <p class="form-label">Teléfono:</p>
+                    </td>
+                    <td class="text-center align-middle">
+                      <span>{{ $perfil->telefono }}</span>
+                    </td>
                   </tr>
-                  <tr>
-                  <td scope="col" class="text-cemter align-middle">{{ $perfil->telefono }}</td>
-                  </tr>
-                  {{-- @endforeach --}}
                 </table>
-              
-        <br>
-          <img src="img/logo_usuario.png" height="150px" alt=""> <!-- Imagen del usuario -->
+              </div>
+              <div class="col-sm-6">
+                <p>Descripción:</p>
+                <table class="table">
+                  <tr>
+                    <td class="text-center align-middle">{{ $perfil->descripcion }}</td>
+                  </tr>
+                </table>
+                <br>
+                <img src="{{ $perfil->perfil }}" height="150px" alt="Imagen del perfil">
+              </div>
+            </div>
+          </form>
         </div>
-      
+        <div class="col-md-5 col-lg-3">
+          <h2 class="text-primary">Cuenta</h2>
+          <p>Nombre:</p>
+          <table class="table">
+            <tr>
+              <td class="text-center align-middle">{{ $perfil->nombre }}</td>
+            </tr>
+          </table>
+        </div>
       </div>
     </div>
   </div>

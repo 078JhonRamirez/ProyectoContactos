@@ -61,15 +61,11 @@ Route::post('/datos/guardar', [guardarDatosController::class, 'guardarDatos'])->
 
 
 
-Route::get('/perfil',[perfil_controller::class,'perfil'])->name('perfil');
+Route::match(['get', 'post'], '/perfil/{id}', [perfil_controller::class, 'perfil'])->name('perfil');
 
-Route::post('perfil', [perfil_controller::class, 'cambiarNombre']);
+Route::match(['get', 'post'], '/detalle_contactos/{id}', [detalle_controller::class, 'detalle'])->name('detalle');
 
-Route::post('perfil', [perfil_controller::class, 'cambiarContrasena']);
-
-Route::get('/detalle_contactos',[detalle_controller::class,'detalle']);
-
-Route::get('/perfil/{id}', [perfil_controller::class, 'perfil']);
+// Route::get('/perfil/{id}', [perfil_controller::class, 'perfil']);
 
 
 
