@@ -4,12 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Contacto;
 use App\Models\grupo;
-
-
+use App\Models\User;
 use Illuminate\Http\Request;
-
 use Validator;
 use Hash;
+
 
 class UsuarioController extends Controller
 {
@@ -20,7 +19,7 @@ class UsuarioController extends Controller
     public function index(grupo $grupo)
     {
         $data = grupo::all()->get;
-        dd($data);
+       // dd($data);
         // return view('nuevoContacto', compact('data'));
 
         
@@ -34,6 +33,41 @@ class UsuarioController extends Controller
 
         return view('nuevoContacto', ['grupos' => $data]);
     
+    }
+    public function Registrousuario(){
+        return view ('register');
+
+
+    }
+    public function Crearusuario(Request $request)
+    {    
+        $resultado = Validator::make($request->all(),[
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+        ]);
+
+        // if ($resultado->fails()) {
+        //     return redirect()
+        //              ->back()
+        //          ->withErrors($resultado)
+        //                 ->withInput();
+        // }
+
+        $dataContacto = [
+            'name' => $request->get('name'),
+            'email' => $request->get('email'),
+            'password' => Hash::make($request->get('password'))
+
+        ];
+
+        User::create($dataContacto);
+        
+        return redirect('register');
+
+        // Contacto::create( $dataContacto);
+        // return redirect('nuevoContacto');
+
     }
 
 
@@ -97,7 +131,7 @@ class UsuarioController extends Controller
 
 
 
- 
+
 
     /**
      * Display the specified resource.

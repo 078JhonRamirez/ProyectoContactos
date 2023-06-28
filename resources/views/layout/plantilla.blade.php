@@ -31,7 +31,7 @@
                 <a class="nav-link active" aria-current="page" href="{{ url('contactos') }}" style=" color: #5DE0E6">contactos</a>
               </li>
               <li>
-                <button class="btn btn-danger" type="submit">Cerrar sesion</button>
+               <a href="{{url('salir')}}"><button class="btn btn-danger" type="submit">Cerrar sesion</button></a> 
               </li>
             </ul>
           </div>

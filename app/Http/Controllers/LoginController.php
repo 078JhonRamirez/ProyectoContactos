@@ -6,24 +6,24 @@ use Illuminate\Http\Request;
 
 use Auth;
 use Hash;
+use Laravel\Ui\Presets\React;
 
 class LoginController extends Controller
 {
 
             public function check(Request $request){
- 
+
                     $data['email'] = $request->get('email');
-                    $data['password'] = Hash::make($request->get('password'));
+                    $data['password'] = ($request->get('password'));
             
-                    // dd($data);
+                   // dd($data);
             
                     if (Auth::attempt( $data )) {
 
                         $request->session()->regenerate();
 
-                        return redirect('contactos');
+                        return redirect()->intended('contactos');
                         // return view('contactos');
-
 
                     }             
                     return back()
@@ -34,9 +34,12 @@ class LoginController extends Controller
                 } 
             
             
-                public function sacar(){
+                public function sacar(Request $request){
                     Auth::logout();
-                    return redirect()->route('index');
+                    $request->session()->invalidate();
+                    $request->session()->regenerateToken();
+                    return redirect()->route('login');
+
                 }
 }
 

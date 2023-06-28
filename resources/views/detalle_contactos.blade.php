@@ -1,3 +1,4 @@
+@include('layout/plantilla')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,16 +8,17 @@
     
     <title>Detalle contactos</title>
 </head>
+
 <body>
+    @yield('menu' ) 
+    <center>
     <div class="container rounded">
         <div class="row">
             <div class="col-3 bg-primary text-white p-4"> <!-- Caja 1 - Información de contacto principal -->
                 <h2 class="mb-4">INFORMACIÓN DE CONTACTO</h2>
                 <table>
                     <tr>
-                        <td>
-                <p class="mb-3"><span class="informacion-contacto">Usuario:</span> </p></td>
-            </tr>
+    
                 <tr>
                     <td>
                 <p class="mb-2"><span class="informacion-contacto">Correo:</span></p></td>
@@ -59,14 +61,14 @@
                             <td><p class="mb-2"><span class="informacion-contacto">Género:</span></p></td>
                             <td scope="col" class="text-center align-middle">{{ $detalle->sexo }}</td>
                         </tr>
-                        <tr>
-                            <td><p class="mb-2"><span class="informacion-contacto">Fecha de creación:</span></p></td><!-- Fecha de creación de la cuenta -->
-                        </tr>
+                        
                     </table>
                 </div>
             </div>
         </div>
     </div>
+    </center>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>

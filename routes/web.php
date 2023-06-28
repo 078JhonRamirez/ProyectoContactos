@@ -10,7 +10,7 @@ use App\Http\Controllers\ContactoController;
 use App\Http\Controllers\guardarDatosController;
 use App\Http\Controllers\gruposController;
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,27 +23,33 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
 Route::get('/', function () {
-    return view('index');
-});  
-
-
-Route::get('/index', function () {
-    return view('index');
-})->name('login'); 
-
+    return view('login');
+})->name('login') ;
+Route::get('/register', [UsuarioController::class, 'Registrousuario'])->name('register');
+Route::post('/register', [UsuarioController::class, 'Crearusuario']);
 Route::post('/check', [LoginController::class, 'check']);
-Route::get('/nuevoContacto', [UsuarioController::class, 'create'])->name('nuevoContacto');
-Route::post('/nuevoContacto', [UsuarioController::class, 'store'])->name('nuevoContacto');
-    
+Route::get('/salir', [loginController::class, 'sacar'])->name('salir');
 
+
+
+Route::middleware(['auth'])->group(function () {
 Route::get('/contactos', [ContactoController::class, 'contactos'], function(){
     return view('contactos');
 });
+Route::get('/nuevoContacto', [UsuarioController::class, 'create'])->name('nuevoContacto');
+Route::post('/nuevoContacto', [UsuarioController::class, 'store'])->name('nuevoContacto');
+
 Route::get('/nuevogrupo', function () {
     return view('nuevogrupo');
 });
+
+
+
+
+
+
+
 
 
 
@@ -56,19 +62,13 @@ Route::delete('/grupos/{id}', [gruposController::class, 'destroy'], function(){
 
 Route::get('/datos/crear', [guardarDatosController::class, 'crearFormulario'])->name('datos.crear');
 Route::post('/datos/guardar', [guardarDatosController::class, 'guardarDatos'])->name('datos.guardar');
- 
 
 
 
 
-Route::match(['get', 'post'], '/perfil/{id}', [perfil_controller::class, 'perfil'])->name('perfil');
-
+Route::get('/perfil', [perfil_controller::class, 'index'])->name('perfil');
+Route::get('/perfil', [perfil_controller::class, 'perfil']);
 Route::match(['get', 'post'], '/detalle_contactos/{id}', [detalle_controller::class, 'detalle'])->name('detalle');
-
-// Route::get('/perfil/{id}', [perfil_controller::class, 'perfil']);
-
-
-
 
 
 
@@ -91,3 +91,4 @@ Route::get('/contactos', [ContactoController::class, 'index'])->name('contactos.
 
 
 
+});
